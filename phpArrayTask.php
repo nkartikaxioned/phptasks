@@ -208,26 +208,10 @@ Recorded temperatures. :</h2>' . "</br>";
 
 $recordedTemperatures = array(78, 60, 62, 68, 71, 68, 73, 85, 66, 64, 76, 63, 75, 76, 73, 68, 62, 73, 72, 65, 74, 62, 62, 65, 64, 68, 73, 75, 79, 73);
 
-// $sortLowestTemp = function($tempArray,$startValue,$endValue){
-// if(is_array($tempArray)){
-//     $newTempratures = array_unique($tempArray);
-//     $sortedTemp = sort($newTempratures);
-//     print_r($sortedTemp);
-//     // print_r(array_slice($newTempratures,$startValue,$endValue));
-// }else {
-//     echo "Pass Valid Array";
-// }
-
-// };
-// $sortLowestTemp($recordedTemperatures,0,5);
-
-$newTempratures = array_unique($recordedTemperatures);
-sort($newTempratures);
-// print_r($newTempratures);
-$fiveLowestTemperature = array_slice($newTempratures,0,5);
-print_r($fiveLowestTemperature);
-$fiveHighestTemperature = array_slice($newTempratures,-5);
-// print_r($fiveHighestTemperature);
+$total = array_sum($recordedTemperatures)/count($recordedTemperatures);
+ sort($recordedTemperatures);
+$fiveLowest = array_slice($recordedTemperatures, 0, 5);
+print_r($fiveLowest);
 
 /*14) Write a PHP program to merge (by index) the following two arrays.
 Sample arrays : 
