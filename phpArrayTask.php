@@ -178,7 +178,11 @@ array(4) { [0]=> int(1) [1]=> int(2) [2]=> int(3) [3]=> int(5) }
 
 echo '<h2> Delete an element from the above PHP array. After deleting the element, integer keys must be normalized. :</h2>' . "</br>";
 
+$x = array(1, 2, 3, 4, 5);
 
+unset($x[2]);
+$x = array_values($x);
+print_r($x);
 
 
 /*12)$color = array(4 => 'white', 6 => 'green', 11=> 'red');
@@ -192,6 +196,77 @@ $waterColor = array(4 => 'white', 6 => 'green', 11=> 'red');
 $firstElement = reset($waterColor);
 echo $firstElement;
 
+/*13) Write a PHP script to calculate and display average temperature, five lowest and highest temperatures.
+Recorded temperatures : 78, 60, 62, 68, 71, 68, 73, 85, 66, 64, 76, 63, 75, 76, 73, 68, 62, 73, 72, 65, 74, 62, 62, 65, 64, 68, 73, 75, 79, 73
+Expected Output :
+Average Temperature is : 70.6 
+List of seven lowest temperatures : 60, 62, 63, 63, 64, 
+List of seven highest temperatures : 76, 78, 79, 81, 85, */
+
+echo '<h2>  Write a PHP script to calculate and display average temperature, five lowest and highest temperatures.
+Recorded temperatures. :</h2>' . "</br>";
+
+$recordedTemperatures = array(78, 60, 62, 68, 71, 68, 73, 85, 66, 64, 76, 63, 75, 76, 73, 68, 62, 73, 72, 65, 74, 62, 62, 65, 64, 68, 73, 75, 79, 73);
+
+// $sortLowestTemp = function($tempArray,$startValue,$endValue){
+// if(is_array($tempArray)){
+//     $newTempratures = array_unique($tempArray);
+//     $sortedTemp = sort($newTempratures);
+//     print_r($sortedTemp);
+//     // print_r(array_slice($newTempratures,$startValue,$endValue));
+// }else {
+//     echo "Pass Valid Array";
+// }
+
+// };
+// $sortLowestTemp($recordedTemperatures,0,5);
+
+$newTempratures = array_unique($recordedTemperatures);
+sort($newTempratures);
+// print_r($newTempratures);
+$fiveLowestTemperature = array_slice($newTempratures,0,5);
+print_r($fiveLowestTemperature);
+$fiveHighestTemperature = array_slice($newTempratures,-5);
+// print_r($fiveHighestTemperature);
+
+/*14) Write a PHP program to merge (by index) the following two arrays.
+Sample arrays : 
+$array1 = array(array(77, 87), array(23, 45));
+$array2 = array("w3resource", "com"); 
+Expected Output :
+
+Array  
+(      
+[0] => Array          
+(              
+[0] => w3resource              
+[1] => 77              
+[2] => 87          
+)        
+[1] => Array          
+(              
+[0] => com              
+[1] => 23              
+[2] => 45          
+)    
+) */
+
+echo '<h2>  Write a PHP program to merge (by index) the following two arrays. :</h2>' . "</br>";
+
+$array1 = array(array(77, 87), array(23, 45));
+$array2 = array("w3resource", "com"); 
+
+// $combinedArray = array_merge($array1,$array2);
+// print_r($combinedArray);
+
+$mergedArray = array();
+
+foreach ($array1 as $key => $subArray) {
+    array_unshift($subArray, $array2[$key]);
+    $mergedArray[] = $subArray;
+}
+
+print_r($mergedArray);
     ?>
 </body>
 
