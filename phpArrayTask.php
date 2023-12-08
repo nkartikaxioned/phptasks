@@ -265,7 +265,6 @@ foreach ($array1 as $key => $subArray) {
     array_unshift($subArray, $array2[$key]);
     $mergedArray[] = $subArray;
 }
-
 print_r($mergedArray);
     ?>
 </body>
